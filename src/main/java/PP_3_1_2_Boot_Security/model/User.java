@@ -2,9 +2,10 @@ package PP_3_1_2_Boot_Security.model;
 
 
 import javax.persistence.*;
-//import javax.validation.constraints.NotEmpty;
-//import javax.validation.constraints.Min;
-//import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name = "user")
@@ -14,12 +15,12 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    //@NotEmpty(message = "Имя не должно быть пустым")
-   // @Size(min = 2, max = 100, message = "Имя должно быть от 2 до 100 символов длиной")
+    @NotEmpty(message = "Имя не должно быть пустым")
+    @Size(min = 2, max = 100, message = "Имя должно быть от 2 до 100 символов длиной")
     @Column(name = "name")
     private String name;
 
-   // @Min(value = 1900, message = "Год рождения должен быть больше 1900")
+    @Min(value = 0, message = "Возраст должен быть больше 0")
     @Column(name = "age")
     private int age;
 
