@@ -28,12 +28,8 @@ public class User {
 
     @Column(name = "password")
     private String password;
-    @ManyToMany
-    @JoinTable(
-            name = "user_role",
-            joinColumns = @JoinColumn(name = "user_id",referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id")
-    )
+
+    @ManyToMany(mappedBy = "users", cascade = CascadeType.ALL)
     private Set<Role> roles = new HashSet<>();
 
 
