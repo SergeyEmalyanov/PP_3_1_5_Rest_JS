@@ -25,10 +25,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
-                .csrf().disable()  //Строчка в login.html
+                //.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/auth/login","/auth/registration", "/error").permitAll() //,"/error"
-                .anyRequest().authenticated()
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/auth/login", "/auth/registration", "/error").permitAll() //,"/error"
+                .anyRequest().hasAnyRole("ADMIN","USER")
                 .and()
                 .formLogin().loginPage("/auth/login")
                 .loginProcessingUrl("/process_login")
@@ -43,8 +44,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     //Настраивает аутентификацию
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService); //TODO
+        auth.userDetailsService(userDetailsService)
+                .passwordEncoder(getPasswordEncoder());
     }
+
     @Bean
     PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();

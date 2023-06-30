@@ -45,4 +45,8 @@ public class AuthController {
         userService.add(user);
         return "redirect:auth/login";
     }
+    @GetMapping ("/admin")
+    public String adminPage(){
+        return "admin";
+    }
 }
