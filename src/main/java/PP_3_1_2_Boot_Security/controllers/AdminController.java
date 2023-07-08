@@ -12,7 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.*;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/admin")
@@ -66,13 +66,14 @@ public class AdminController {
         Set<Role> roles = user.getRoles();
         for (Role role : roles) {
             role.addUser(user);
-            System.err.println("role from controller "+ role);
+            System.err.println("role from controller " + role);
         }
         userService.update(user, newPass);
         return "redirect:/admin/";
     }
-    @DeleteMapping ("/{id}")
-    public String delete (@PathVariable("id") int id){
+
+    @DeleteMapping("/{id}")
+    public String delete(@PathVariable("id") int id) {
         userService.delete(id);
         return "redirect:/admin/";
     }

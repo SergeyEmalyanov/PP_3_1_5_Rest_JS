@@ -130,6 +130,7 @@ public class User implements UserDetails {
     public User getUser() {
         return this;
     }
+
     @Override
     public String toString() {
         return "Id:" + id + ",  Name:" + name + ",  age:" + age;

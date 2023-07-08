@@ -1,20 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Display All</title>
+    <meta charset="UTF-8">
+    <title>Display All</title>
 </head>
 <body>
 <div th:insert="~{logout_button::header}"></div>
 <div th:each="user : ${users}">
-  <a th:href="@{/admin/edit/{id}(id=${user.getId()})}"
-     th:text="${user.toString()}">VALUE</a>
+    <a th:href="@{/admin/edit/{id}(id=${user.getId()})}"
+       th:text="${user.toString()}">VALUE</a>
 </div>
 <br/>
-<!--<a href="registration">Create new user</a>-->
 
 <form th:action="@{registration}" method="get">
-  <button type="submit">Регистрация</button>
+    <button type="submit">Регистрация</button>
 </form>
 <br>
 </body>
