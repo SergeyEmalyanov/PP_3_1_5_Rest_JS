@@ -65,6 +65,11 @@ public class Role implements GrantedAuthority {
         return new Role("ROLE_USER");
     }
 
+    public static Role getRoleAdmin() {
+        return new Role("ROLE_ADMIN");
+    }
+
+
     @Override
     public String getAuthority() {
         return this.getName();

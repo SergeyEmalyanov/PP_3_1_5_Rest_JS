@@ -24,11 +24,11 @@ public class UserValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         User user = (User) target;
-        if (userRepository.findByName(user.getName()).isPresent()){
-            errors.rejectValue("name","","Пользователь с таким именем уже существует");
+        if (userRepository.findByName(user.getName()).isPresent()) {
+            errors.rejectValue("name", "", "Пользователь с таким именем уже существует");
         }
-        if (user.getPassword()==null || user.getPassword().equals("")){
-            errors.rejectValue("password","","Пароль не должен быть пустым");
+        if (user.getPassword() == null || user.getPassword().equals("")) {
+            errors.rejectValue("password", "", "Пароль не должен быть пустым");
         }
     }
 }
