@@ -11,16 +11,14 @@ import java.util.Set;
 public interface UserService {
     List<User> getAll();
 
-    void add(User user);
+    void add(User user, Set <Role> roles);
 
     User getUser(int id);
 
-    void update(int id, User user);
+    void update(User user, String newPass);
 
     void delete(int id);
 
     Optional<User> findByName(String name);
-
-    public Set<Role> getRolesByUser(String name);
 
 }
