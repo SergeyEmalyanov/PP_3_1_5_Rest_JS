@@ -35,13 +35,13 @@ public class AdminController {
     }
 
     @GetMapping("/registration")
-    public String registrationPage(@ModelAttribute("user") User user, Model model) {
+    public String add(@ModelAttribute("user") User user, Model model) {
         model.addAttribute("rolesList", roleService.getAllRoles());
         return "registration";
     }
 
     @PostMapping("/registration")
-    public String performRegistration(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
+    public String save(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
             return "registration";
@@ -53,7 +53,7 @@ public class AdminController {
     }
 
     @GetMapping("/edit/{id}")
-    public String editUser(Model model, @PathVariable("id") int id) {
+    public String edit(Model model, @PathVariable("id") int id) {
         User user = userService.getUser(id);
         model.addAttribute("user", user);
         model.addAttribute("rolesList", roleService.getAllRoles());
