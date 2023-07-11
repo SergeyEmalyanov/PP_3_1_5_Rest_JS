@@ -1,4 +1,4 @@
-package PP_3_1_2_Boot_Security.controllers;
+package PP_3_1_4_Bootstrap.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

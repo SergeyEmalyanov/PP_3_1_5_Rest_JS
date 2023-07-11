@@ -1,6 +1,6 @@
-package PP_3_1_2_Boot_Security.repository;
+package PP_3_1_4_Bootstrap.repository;
 
-import PP_3_1_2_Boot_Security.model.Role;
+import PP_3_1_4_Bootstrap.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

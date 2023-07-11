@@ -1,4 +1,4 @@
-package PP_3_1_2_Boot_Security;
+package PP_3_1_4_Bootstrap;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

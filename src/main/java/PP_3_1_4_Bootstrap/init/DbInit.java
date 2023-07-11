@@ -1,9 +1,9 @@
-package PP_3_1_2_Boot_Security.init;
+package PP_3_1_4_Bootstrap.init;
 
-import PP_3_1_2_Boot_Security.model.Role;
-import PP_3_1_2_Boot_Security.model.User;
-import PP_3_1_2_Boot_Security.repository.RoleRepository;
-import PP_3_1_2_Boot_Security.repository.UserRepository;
+import PP_3_1_4_Bootstrap.model.Role;
+import PP_3_1_4_Bootstrap.model.User;
+import PP_3_1_4_Bootstrap.repository.RoleRepository;
+import PP_3_1_4_Bootstrap.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;

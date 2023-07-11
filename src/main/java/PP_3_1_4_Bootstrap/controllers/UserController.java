@@ -1,6 +1,6 @@
-package PP_3_1_2_Boot_Security.controllers;
+package PP_3_1_4_Bootstrap.controllers;
 
-import PP_3_1_2_Boot_Security.model.User;
+import PP_3_1_4_Bootstrap.model.User;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

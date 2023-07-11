@@ -1,4 +1,4 @@
-package PP_3_1_2_Boot_Security.config;
+package PP_3_1_4_Bootstrap.config;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;

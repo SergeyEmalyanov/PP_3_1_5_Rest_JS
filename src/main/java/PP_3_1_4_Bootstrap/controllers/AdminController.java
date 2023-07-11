@@ -1,10 +1,10 @@
-package PP_3_1_2_Boot_Security.controllers;
+package PP_3_1_4_Bootstrap.controllers;
 
-import PP_3_1_2_Boot_Security.model.Role;
-import PP_3_1_2_Boot_Security.model.User;
-import PP_3_1_2_Boot_Security.services.RoleService;
-import PP_3_1_2_Boot_Security.services.UserService;
-import PP_3_1_2_Boot_Security.util.UserValidator;
+import PP_3_1_4_Bootstrap.model.Role;
+import PP_3_1_4_Bootstrap.model.User;
+import PP_3_1_4_Bootstrap.services.RoleService;
+import PP_3_1_4_Bootstrap.services.UserService;
+import PP_3_1_4_Bootstrap.util.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

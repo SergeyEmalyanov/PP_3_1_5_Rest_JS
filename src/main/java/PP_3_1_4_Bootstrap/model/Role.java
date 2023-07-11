@@ -1,4 +1,4 @@
-package PP_3_1_2_Boot_Security.model;
+package PP_3_1_4_Bootstrap.model;
 
 import org.springframework.security.core.GrantedAuthority;
 

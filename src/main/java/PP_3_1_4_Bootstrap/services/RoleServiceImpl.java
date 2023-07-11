@@ -1,7 +1,7 @@
-package PP_3_1_2_Boot_Security.services;
+package PP_3_1_4_Bootstrap.services;
 
-import PP_3_1_2_Boot_Security.repository.RoleRepository;
-import PP_3_1_2_Boot_Security.model.Role;
+import PP_3_1_4_Bootstrap.repository.RoleRepository;
+import PP_3_1_4_Bootstrap.model.Role;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

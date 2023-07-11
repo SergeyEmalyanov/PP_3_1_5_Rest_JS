@@ -1,7 +1,7 @@
-package PP_3_1_2_Boot_Security.util;
+package PP_3_1_4_Bootstrap.util;
 
-import PP_3_1_2_Boot_Security.model.User;
-import PP_3_1_2_Boot_Security.repository.UserRepository;
+import PP_3_1_4_Bootstrap.model.User;
+import PP_3_1_4_Bootstrap.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
