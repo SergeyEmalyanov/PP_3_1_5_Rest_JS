@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.HashSet;
-import java.util.Optional;
 import java.util.Set;
 
 @Component
@@ -30,42 +29,20 @@ public class DbInit {
     @PostConstruct
     private void postConstruct() {
         Set<Role> userRoles = new HashSet<>();
-        Role roleUser = getRoleUser();
+        Role roleUser = Role.getRoleUser();
+        roleRepository.save(roleUser);
         userRoles.add(roleUser);
         User user = new User("user", 30, passwordEncoder.encode("user"), userRoles);
         roleUser.addUser(user);
         userRepository.save(user);
         Set<Role> adminRoles = new HashSet<>();
-        Role roleAdmin = getRoleAdmin();
+        Role roleAdmin = Role.getRoleAdmin();
+        roleRepository.save(roleAdmin);
         adminRoles.add(roleUser);
         adminRoles.add(roleAdmin);
         User admin = new User("admin", 30, passwordEncoder.encode("admin"), adminRoles);
         roleUser.addUser(admin);
         roleAdmin.addUser(admin);
         userRepository.save(admin);
-    }
-
-    private Role getRoleUser() {
-        Role roleUser;
-        Optional<Role> opRoleUser = roleRepository.findByName("ROLE_USER");
-        if (opRoleUser.isEmpty()) {
-            roleUser = Role.getRoleUser();
-            roleRepository.save(roleUser);
-        } else {
-            roleUser = opRoleUser.get();
-        }
-        return roleUser;
-    }
-
-    private Role getRoleAdmin() {
-        Role roleAdmin;
-        Optional<Role> opRoleAdmin = roleRepository.findByName("ROLE_ADMIN");
-        if (opRoleAdmin.isEmpty()) {
-            roleAdmin = Role.getRoleAdmin();
-            roleRepository.save(roleAdmin);
-        } else {
-            roleAdmin = opRoleAdmin.get();
-        }
-        return roleAdmin;
     }
 }

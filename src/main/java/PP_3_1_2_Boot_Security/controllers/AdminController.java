@@ -35,7 +35,7 @@ public class AdminController {
     }
 
     @GetMapping("/registration")
-    public String add(@ModelAttribute("user") User user, Model model) {
+    public String getRegistrationForm(@ModelAttribute("user") User user, Model model) {
         model.addAttribute("rolesList", roleService.getAllRoles());
         return "registration";
     }
@@ -53,7 +53,7 @@ public class AdminController {
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(Model model, @PathVariable("id") int id) {
+    public String getEditForm(Model model, @PathVariable("id") int id) {
         User user = userService.getUser(id);
         model.addAttribute("user", user);
         model.addAttribute("rolesList", roleService.getAllRoles());
@@ -66,7 +66,6 @@ public class AdminController {
         Set<Role> roles = user.getRoles();
         for (Role role : roles) {
             role.addUser(user);
-            System.err.println("role from controller " + role);
         }
         userService.update(user, newPass);
         return "redirect:/admin/";
