@@ -6,6 +6,7 @@ import PP_3_1_4_Bootstrap.services.RoleService;
 import PP_3_1_4_Bootstrap.services.UserService;
 import PP_3_1_4_Bootstrap.util.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -29,35 +30,24 @@ public class AdminController {
     }
 
     @GetMapping("/")
-    public String showAll(Model model) {
+    public String showAll(Model model, @AuthenticationPrincipal User user
+            , @ModelAttribute("newUser") User newUser) {
+        model.addAttribute("user", user);
         model.addAttribute("users", userService.getAll());
+        model.addAttribute("rolesList", roleService.getAllRoles());
         return "admin";
     }
 
-    @GetMapping("/registration")
-    public String getRegistrationForm(@ModelAttribute("user") User user, Model model) {
-        model.addAttribute("rolesList", roleService.getAllRoles());
-        return "registration";
-    }
-
-    @PostMapping("/registration")
+    @PostMapping("/")
     public String save(@ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
         userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
-            return "registration";
+            return "redirect:/admin/";
         }
         Set<Role> roles = user.getRoles();
         roles.add(roleService.findByName("ROLE_USER").orElse(Role.getRoleUser()));
         userService.add(user, roles);
-        return "redirect:/login";
-    }
-
-    @GetMapping("/edit/{id}")
-    public String getEditForm(Model model, @PathVariable("id") int id) {
-        User user = userService.getUser(id);
-        model.addAttribute("user", user);
-        model.addAttribute("rolesList", roleService.getAllRoles());
-        return "edit";
+        return "redirect:/admin/";
     }
 
     @PatchMapping("/{id}")
