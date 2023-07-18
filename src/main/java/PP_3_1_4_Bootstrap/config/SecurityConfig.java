@@ -27,9 +27,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http
-                //.csrf().disable()
+                .csrf().disable()//Убрать со страницы логина??
                 .authorizeRequests()
-                .antMatchers("/admin/**").hasRole("ADMIN")
+                .antMatchers("/admin","/api/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/").hasAnyRole("USER", "ADMIN")
                 .antMatchers("/login", "/error").permitAll() //,"/error"
                 .and()
