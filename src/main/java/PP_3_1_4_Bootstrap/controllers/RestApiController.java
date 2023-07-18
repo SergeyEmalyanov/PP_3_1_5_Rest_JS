@@ -42,7 +42,6 @@ public class RestApiController {
 
     @PostMapping("/admin")
     public ResponseEntity<User> save(@RequestBody @Valid User user, BindingResult bindingResult) {
-        System.err.println("из контроллера " + user);
         userValidator.validate(user, bindingResult);
         if (bindingResult.hasErrors()) {
             StringBuilder errorMsg = new StringBuilder();
